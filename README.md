@@ -15,6 +15,8 @@ ChaCha20-Poly1305 algorithm takes as input a 256-bit key and a 96-bit nonce to e
 
 ChaCha20 is used to derive a key stream that is XORed with the plaintext. The ciphertext and the associated data is then authenticated using a variant of Poly1305 that first encodes the two strings into one. 
 
+<img width="1280" height="973" alt="Image" src="https://github.com/user-attachments/assets/7703a520-4293-4b1e-8eb1-01450ae035a0" />
+
 # Use 
 This algorithm can be used in IPsec, SSH, TLS 1.2, DTLS 1.2, TLS 1.3, WireGuard, S/MIME 4.0, OTRv4 and multiple other protocols and implemented in OpenSSL and libsodium. 
 
@@ -35,6 +37,8 @@ Apache License Version 2.0, January 2004, http://www.apache.org/licenses/
 ChaCha20-Poly1305 알고리즘은 평문을 암호화하기 위해 256비트 키와 96비트 논스(Nonce)를 입력으로 사용하며, 암호문은 128비트(태그 크기)만큼 확장됩니다.
 
 ChaCha20는 평문과 XOR 연산을 수행할 키 스트림을 생성하는 데 사용됩니다. 그 후 암호문과 연관 데이터는 먼저 두 문자열을 하나로 인코딩하는 Poly1305의 변형을 사용하여 인증됩니다.
+
+<img width="1280" height="973" alt="Image" src="https://github.com/user-attachments/assets/7703a520-4293-4b1e-8eb1-01450ae035a0" />
 
 # 이 알고리즘을 사용하는 프로토콜
 이 알고리즘은 IPsec, SSH, TLS 1.2, DTLS 1.2, TLS 1.3, WireGuard, S/MIME 4.0, OTRv4 및 여러 다른 프로토콜에서 사용할 수 있으며, OpenSSL과 libsodium에 구현되어 있습니다.
