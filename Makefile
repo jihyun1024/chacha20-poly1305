@@ -16,16 +16,22 @@ all: $(TARGET)
 $(TARGET): $(OBJ)
 	$(CC) $(LDFLAGS) -o $@ $^
 
+test: all
+
 # 객체 파일 생성 규칙
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 # 실행 규칙 (mingw32-make run 명령으로 실행 가능)
 run: $(TARGET)
+ifeq ($(OS),Windows_NT)
+	.\$(TARGET)$(EXEEXT)
+else
 	./$(TARGET)
+endif
 
 # 정리 규칙
 clean:
 	rm -f $(TARGET) $(OBJ)
 
-.PHONY: all run clean
+.PHONY: all test run clean
