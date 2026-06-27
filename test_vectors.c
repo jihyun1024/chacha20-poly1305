@@ -10,7 +10,7 @@ int main() {
         0x13121110, 0x17161514, 0x1b1a1918, 0x1f1e1d1c
     };
     uint32_t counter = 0x00000001;
-    uint32_t nonce[3] = {0x00000000, 0x4a000000, 0x00000000};
+    uint32_t nonce[3] = { 0x00000000, 0x4a000000, 0x00000000 };
 
     uint8_t keystream[64]; // 결과물이 저장될 키스트림
 
@@ -18,10 +18,13 @@ int main() {
 
     // 출력 검증 결과 비교 시각화 화면 구성
     printf("--- [ChaCha20 Keystream & Encryption Output Test] ---\n");
-    printf("Result keystream : ");
-    for (int i = 0; i < 64; i++) printf("%02x ", keystream[i]);
+    printf("Result keystream : \n");
+    for (int i = 0; i < 64; i++) {
+        printf("%02x ", keystream[i]);
+        if (i % 16 == 15) printf("\n");
+    }
 
-    printf("\n\nTest plaintext: ");
+    printf("\n\nTest plaintext: \n");
     uint8_t plaintext[114] = {
         0x4c,0x61,0x64,0x69,0x65,0x73,0x20,0x61,
         0x6e,0x64,0x20,0x47,0x65,0x6e,0x74,0x6c,
@@ -37,13 +40,19 @@ int main() {
         0x72,0x65,0x2c,0x20,0x73,0x75,0x6e,0x73,
         0x63,0x72,0x65,0x65,0x6e,0x20,0x77,0x6f,
         0x75,0x6c,0x64,0x20,0x62,0x65,0x20,0x69,
-        0x74,0x2e 
+        0x74,0x2e
     };
-    for (int i = 0; i < 114; i++) printf("%02x ", plaintext[i]);
+    for (int i = 0; i < 114; i++) {
+        printf("%02x ", plaintext[i]);
+        if (i % 16 == 15) printf("\n");
+    }
 
-    printf("\n\nTest Ciphertext: "); uint8_t ciphertext[114] = {0x00, };
+    printf("\n\nTest Ciphertext: \n"); uint8_t ciphertext[114] = { 0x00, };
     chacha20_encrypt(ciphertext, plaintext, 114, key, counter, nonce);
-    for (int i = 0; i < 114; i++) printf("%02x ", ciphertext[i]);
+    for (int i = 0; i < 114; i++) {
+        printf("%02x ", ciphertext[i]);
+        if (i % 16 == 15) printf("\n");
+    }
 
     return 0;
 }
